@@ -1,6 +1,7 @@
 ##R script of functions used for migration dataset 
-##Started 09/2015 
-##These funcitons read international IPUMS census data, using Cameroon's 2005 census as an example
+##Started 09/2016 
+##These funcitons read international IPUMS census data to identify and disaggregate geographic variables at various administrative 
+##unit levels, using Cameroon's 2005 census as an example
 ##The main tasks this file executes are: 
 ##1) determine birthplace and current location mismatches 
 ##2) identify the type of move that occurred (across regions (level 1) or across districts (level 2)) 
@@ -206,10 +207,8 @@ toLevel <- function(df, fromLevel, toLevel, levelnames){
 ### APPLY TO SAMPLE DATA ####
 
 ## Header
-path <- "C:\\Users\\Sanata\\Dropbox\\08 Migration Paper\\Datasets\\01 Censuses\\"
-setwd(path)
-
-load( paste0(path,"cameroon_census05_sample100.RData") )
+path <- "Census-data-in-R/cameroon_census05_sample100.RData"
+load( path )
 
 
 #test functions 
@@ -246,6 +245,6 @@ table(cam$movedbpl.lev2)
 table(cam$withinreg.bplmove)
 table(cam$acrossreg.bplmove)
 
-save(cam, file= paste0(path, "cameroon_census05_sample100_edit.RData"))
+#save(cam, file= paste0(path, "cameroon_census05_sample100_edit.RData"))
 
 
